@@ -9,6 +9,6 @@ export const confirmFinishProcessModalIsOpen = state =>
 
 export const getTasks = state => state.processor.tasks || {};
 
-export const getTotalValue = state => state.processor.totalVaue || 0;
+export const getTotalValue = state => state.processor.totalValue || 0;
 
 export const isProcessing = state => state.processor.isProcessing || false;
