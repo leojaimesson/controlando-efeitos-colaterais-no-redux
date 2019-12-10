@@ -32,24 +32,19 @@ const Loader = styled(Circle)`
   margin: 0;
 `;
 
-const Task = ({
-  title,
-  description,
-  isProcessing,
-  value,
-  palette,
-  ...others
-}) => (
-  <Wrapper palette={palette} {...others}>
-    <Header palette={palette}>
-      <Card.Title>{title}</Card.Title>
-      {isProcessing && <Loader />}
-    </Header>
-    <Body>{description}</Body>
-    <Footer palette={palette}>
-      <Label palette={palette}>Value: {value}</Label>
-    </Footer>
-  </Wrapper>
+const Task = React.memo(
+  ({ title, description, isProcessing, value, palette, ...others }) => (
+    <Wrapper palette={palette} {...others}>
+      <Header palette={palette}>
+        <Card.Title>{title}</Card.Title>
+        {isProcessing && <Loader />}
+      </Header>
+      <Body>{description}</Body>
+      <Footer palette={palette}>
+        <Label palette={palette}>Value: {value}</Label>
+      </Footer>
+    </Wrapper>
+  )
 );
 
 Task.defaultProps = {

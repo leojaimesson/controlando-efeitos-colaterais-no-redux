@@ -9,8 +9,8 @@ const Wrapper = styled.main`
   padding-right: 10px;
 `;
 
-const ViewBody = ({ children, className }) => (
+const ViewBody = React.memo(({ children, className }) => (
   <Wrapper className={className}>{children}</Wrapper>
-);
+));
 
 export default ViewBody;

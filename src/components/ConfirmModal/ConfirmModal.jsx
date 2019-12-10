@@ -41,28 +41,23 @@ const Footer = styled(Card.Footer)`
   }
 `;
 
-const ConfirmModal = ({
-  title,
-  isOpen,
-  theme,
-  cancelFn,
-  confirmFn,
-  children
-}) => (
-  <Wrapper isOpen={isOpen} theme={theme}>
-    <Card>
-      <Header>
-        <Title>{title}</Title>
-      </Header>
-      <Body>{children}</Body>
-      <Footer>
-        <Button onClick={cancelFn}>Cancel</Button>
-        <Button onClick={confirmFn} palette="primary">
-          Ok
-        </Button>
-      </Footer>
-    </Card>
-  </Wrapper>
+const ConfirmModal = React.memo(
+  ({ title, isOpen, theme, cancelFn, confirmFn, children }) => (
+    <Wrapper isOpen={isOpen} theme={theme}>
+      <Card>
+        <Header>
+          <Title>{title}</Title>
+        </Header>
+        <Body>{children}</Body>
+        <Footer>
+          <Button onClick={cancelFn}>Cancel</Button>
+          <Button onClick={confirmFn} palette="primary">
+            Ok
+          </Button>
+        </Footer>
+      </Card>
+    </Wrapper>
+  )
 );
 
 ConfirmModal.defaultProps = {

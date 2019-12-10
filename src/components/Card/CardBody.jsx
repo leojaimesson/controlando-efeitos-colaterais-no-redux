@@ -6,9 +6,9 @@ const Wrapper = styled.main`
   padding: 10px;
 `;
 
-const CardBody = ({ children, className }) => (
+const CardBody = React.memo(({ children, className }) => (
   <Wrapper className={className}>{children}</Wrapper>
-);
+));
 
 CardBody.defaultProps = {
   children: undefined

@@ -24,11 +24,11 @@ const Wrapper = styled.footer`
   ${variant}
 `;
 
-const CardFooter = ({ palette, className, children }) => (
+const CardFooter = React.memo(({ palette, className, children }) => (
   <Wrapper palette={palette} className={className}>
     {children}
   </Wrapper>
-);
+));
 
 CardFooter.defaultProps = {
   children: undefined,

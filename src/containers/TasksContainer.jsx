@@ -1,21 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Tasks from "../components/Tasks";
 import { processor } from "../redux";
 
-class TasksContainer extends Component {
-  render() {
-    const { tasks } = this.props;
-    return <Tasks tasks={tasks} />;
-  }
-}
-
-const mapStateToProps = createStructuredSelector({
+const selectors = createStructuredSelector({
   tasks: processor.selectors.getTasks
 });
 
-export default connect(
-  mapStateToProps,
-  null
-)(TasksContainer);
+const TasksContainer = () => {
+  const { tasks } = useSelector(selectors);
+  return <Tasks tasks={tasks} />;
+};
+
+export default TasksContainer;

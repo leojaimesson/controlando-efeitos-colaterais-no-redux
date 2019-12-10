@@ -37,16 +37,18 @@ const Wrapper = styled.button`
   `}
 `;
 
-const Button = ({ palette, size, tag, disabled, onClick, children }) => (
-  <Wrapper
-    as={tag}
-    palette={palette}
-    size={size}
-    disabled={disabled}
-    onClick={onClick}
-  >
-    {children}
-  </Wrapper>
+const Button = React.memo(
+  ({ palette, size, tag, disabled, onClick, children }) => (
+    <Wrapper
+      as={tag}
+      palette={palette}
+      size={size}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {children}
+    </Wrapper>
+  )
 );
 
 Button.defaultProps = {

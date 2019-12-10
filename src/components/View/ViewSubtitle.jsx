@@ -8,8 +8,8 @@ const Wrapper = styled.h3`
   color: ${props => props.theme.palettes.default.foreground};
 `;
 
-const ViewSubtitle = ({ children, className }) => (
+const ViewSubtitle = React.memo(({ children, className }) => (
   <Wrapper className={className}>{children}</Wrapper>
-);
+));
 
 export default ViewSubtitle;

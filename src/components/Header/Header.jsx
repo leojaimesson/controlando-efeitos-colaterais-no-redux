@@ -54,11 +54,7 @@ const Header = () => (
     <LeftContent>
       <Username>Cícero Viana</Username>
     </LeftContent>
-    <RightContent>
-      <OSFLogo>
-        <span>OSF</span> Global services
-      </OSFLogo>
-    </RightContent>
+    <RightContent>Redux-Saga</RightContent>
   </Wrapper>
 );
 export default Header;

@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Wrapper = styled.div``;
 
-const View = ({ title, subtitle, body, children }) => (
+const View = React.memo(({ title, subtitle, body, children }) => (
   <>
     <GlobalStyle />
     <Wrapper>
@@ -34,7 +34,7 @@ const View = ({ title, subtitle, body, children }) => (
       <Footer />
     </Wrapper>
   </>
-);
+));
 
 View.Title = ViewTitle;
 View.Subtitle = ViewSubtitle;

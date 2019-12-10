@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import View from "../components/View";
 import Button from "../components/Button";
@@ -11,6 +11,11 @@ import ConfirmStartProcessModalContainer from "./ConfirmStartProcessModalContain
 import ConfirmCancelProcessModalContainer from "./ConfirmCancelProcessModalContainer";
 import ConfirmFinishProcessModalContainer from "./ConfirmFinishProcessModalContainer";
 
+const selectors = createStructuredSelector({
+  totalValue: processor.selectors.getTotalValue,
+  isProcessing: processor.selectors.isProcessing
+});
+
 const ActionsRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -18,58 +23,42 @@ const ActionsRow = styled.div`
   align-items: center;
 `;
 
-class HomeContainer extends Component {
-  startProcess = () => {
-    const { announceStartProcessAction } = this.props;
-    announceStartProcessAction();
-  };
-  cancelProcess = () => {
-    const { announceCancelProcessAction } = this.props;
-    announceCancelProcessAction();
-  };
-  render() {
-    const { totalValue, isProcessing } = this.props;
-    return (
-      <View
-        title="Sequential Tasks"
-        subtitle="Using Redux-Saga to handle sequential tasks"
-      >
-        <ActionsRow>
-          <Label palette="primary">Total Value: {totalValue}</Label>
-          <div>
-            {isProcessing ? (
-              <Button palette="alert" onClick={this.cancelProcess}>
-                Cancel process
-              </Button>
-            ) : (
-              <Button palette="success" onClick={this.startProcess}>
-                Start process
-              </Button>
-            )}
-          </div>
-        </ActionsRow>
-        <TasksContainer />
-        <ConfirmStartProcessModalContainer />
-        <ConfirmCancelProcessModalContainer />
-        <ConfirmFinishProcessModalContainer />
-      </View>
-    );
-  }
-}
+const HomeContainer = () => {
+  const dispatch = useDispatch();
+  const { totalValue, isProcessing } = useSelector(selectors);
+  const startProcess = React.useCallback(() => {
+    dispatch(processor.actions.announceStartProcess());
+  }, [dispatch]);
 
-const mapStateToProps = createStructuredSelector({
-  totalValue: processor.selectors.getTotalValue,
-  isProcessing: processor.selectors.isProcessing
-});
+  const cancelProcess = React.useCallback(() => {
+    dispatch(processor.actions.announceCancelProcess());
+  }, [dispatch]);
 
-const mapDispatchToProps = {
-  startProcessAction: processor.actions.startProcess,
-  cancelProcessAction: processor.actions.cancelProcess,
-  announceStartProcessAction: processor.actions.announceStartProcess,
-  announceCancelProcessAction: processor.actions.announceCancelProcess
+  return (
+    <View
+      title="Sequential Tasks"
+      subtitle="Using Redux-Saga to handle sequential tasks"
+    >
+      <ActionsRow>
+        <Label palette="primary">Total Value: {totalValue}</Label>
+        <div>
+          {isProcessing ? (
+            <Button palette="alert" onClick={cancelProcess}>
+              Cancel process
+            </Button>
+          ) : (
+            <Button palette="success" onClick={startProcess}>
+              Start process
+            </Button>
+          )}
+        </div>
+      </ActionsRow>
+      <TasksContainer />
+      <ConfirmStartProcessModalContainer />
+      <ConfirmCancelProcessModalContainer />
+      <ConfirmFinishProcessModalContainer />
+    </View>
+  );
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(HomeContainer);
+export default HomeContainer;

@@ -21,11 +21,11 @@ const Wrapper = styled.section`
   ${variant}
 `;
 
-const Card = ({ palette, className, children }) => (
+const Card = React.memo(({ palette, className, children }) => (
   <Wrapper palette={palette} className={className}>
     {children}
   </Wrapper>
-);
+));
 
 Card.defaultProps = {
   children: undefined,

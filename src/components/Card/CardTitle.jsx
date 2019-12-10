@@ -9,7 +9,9 @@ export const Wrapper = styled.h5`
   padding: 0;
 `;
 
-const CardTitle = ({ tag, children }) => <Wrapper as={tag}>{children}</Wrapper>;
+const CardTitle = React.memo(({ tag, children }) => (
+  <Wrapper as={tag}>{children}</Wrapper>
+));
 
 CardTitle.defaultProps = {
   tag: "h5",

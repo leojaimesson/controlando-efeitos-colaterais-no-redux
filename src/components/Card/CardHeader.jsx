@@ -23,11 +23,11 @@ const Wrapper = styled.header`
   ${variant}
 `;
 
-const CardHeader = ({ palette, className, children }) => (
+const CardHeader = React.memo(({ palette, className, children }) => (
   <Wrapper palette={palette} className={className}>
     {children}
   </Wrapper>
-);
+));
 
 CardHeader.defaultProps = {
   children: undefined,

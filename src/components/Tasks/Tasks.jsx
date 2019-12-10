@@ -13,7 +13,7 @@ const Wrapper = styled.ul`
   }
 `;
 
-const Tasks = ({ tasks }) => {
+const Tasks = React.memo(({ tasks }) => {
   const taskKeys = Object.keys(tasks);
   return (
     <Wrapper>
@@ -32,7 +32,7 @@ const Tasks = ({ tasks }) => {
       })}
     </Wrapper>
   );
-};
+});
 
 Tasks.defaultProps = {
   tasks: {}
