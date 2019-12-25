@@ -6,8 +6,13 @@ const Wrapper = styled.main`
   padding: 10px;
 `;
 
-const CardBody = React.memo(({ children, className }) => (
-  <Wrapper className={className}>{children}</Wrapper>
+const CardBody = React.memo(({ children, className, ...others }) => (
+  <Wrapper
+    className={className}
+    data-testid={others["data-testid"] || "card-body"}
+  >
+    {children}
+  </Wrapper>
 ));
 
 CardBody.defaultProps = {

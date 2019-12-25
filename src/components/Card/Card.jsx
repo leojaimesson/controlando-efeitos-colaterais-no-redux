@@ -21,8 +21,12 @@ const Wrapper = styled.section`
   ${variant}
 `;
 
-const Card = React.memo(({ palette, className, children }) => (
-  <Wrapper palette={palette} className={className}>
+const Card = React.memo(({ palette, className, children, ...others }) => (
+  <Wrapper
+    palette={palette}
+    className={className}
+    data-testid={others["data-testid"] || "card"}
+  >
     {children}
   </Wrapper>
 ));

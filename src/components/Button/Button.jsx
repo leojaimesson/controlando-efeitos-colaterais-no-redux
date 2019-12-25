@@ -38,13 +38,14 @@ const Wrapper = styled.button`
 `;
 
 const Button = React.memo(
-  ({ palette, size, tag, disabled, onClick, children }) => (
+  ({ palette, size, tag, disabled, onClick, children, ...others }) => (
     <Wrapper
       as={tag}
       palette={palette}
       size={size}
       disabled={disabled}
       onClick={onClick}
+      data-testid={others["data-testid"] || "button"}
     >
       {children}
     </Wrapper>
@@ -59,7 +60,15 @@ Button.defaultProps = {
 };
 
 Button.propType = {
-  size: PropTypes.oneOf(["small", "default", "large"])
+  size: PropTypes.oneOf(["small", "default", "large"]),
+  palette: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "success",
+    "alert",
+    "warniing"
+  ])
 };
 
 export default Button;

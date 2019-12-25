@@ -24,8 +24,12 @@ const Wrapper = styled.footer`
   ${variant}
 `;
 
-const CardFooter = React.memo(({ palette, className, children }) => (
-  <Wrapper palette={palette} className={className}>
+const CardFooter = React.memo(({ palette, className, children, ...others }) => (
+  <Wrapper
+    palette={palette}
+    className={className}
+    data-testid={others["data-testid"] || "card-footer"}
+  >
     {children}
   </Wrapper>
 ));

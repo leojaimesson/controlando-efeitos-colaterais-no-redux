@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import StyledModal from "styled-react-modal";
 import Card from "../Card";
@@ -43,15 +44,21 @@ const Footer = styled(Card.Footer)`
 
 const ConfirmModal = React.memo(
   ({ title, isOpen, theme, cancelFn, confirmFn, children }) => (
-    <Wrapper isOpen={isOpen} theme={theme}>
+    <Wrapper isOpen={isOpen} theme={theme} data-testid="confirm-modal">
       <Card>
-        <Header>
-          <Title>{title}</Title>
+        <Header data-testid="confirm-modal-header">
+          <Title data-testid="confirm-modal-title">{title}</Title>
         </Header>
-        <Body>{children}</Body>
-        <Footer>
-          <Button onClick={cancelFn}>Cancel</Button>
-          <Button onClick={confirmFn} palette="primary">
+        <Body data-testid="confirm-modal-body">{children}</Body>
+        <Footer data-testid="confirm-modal-footer">
+          <Button onClick={cancelFn} data-testid="confirm-modal-cancel-button">
+            Cancel
+          </Button>
+          <Button
+            onClick={confirmFn}
+            palette="primary"
+            data-testid="confirm-modal-confirm-button"
+          >
             Ok
           </Button>
         </Footer>
@@ -61,9 +68,13 @@ const ConfirmModal = React.memo(
 );
 
 ConfirmModal.defaultProps = {
-  palette: "default",
   cancelFn: undefined,
   confirmFn: undefined
+};
+
+ConfirmModal.propTypes = {
+  cancelFn: PropTypes.func,
+  confirmFn: PropTypes.func
 };
 
 export default ConfirmModal;

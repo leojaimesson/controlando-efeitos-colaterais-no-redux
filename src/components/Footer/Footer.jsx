@@ -12,7 +12,7 @@ const Wrapper = styled.footer`
 `;
 
 const Footer = () => (
-  <Wrapper>
+  <Wrapper data-testid="footer">
     <h6>github.com/cicerohen</h6>
   </Wrapper>
 );

@@ -25,8 +25,10 @@ const Wrapper = styled.div`
   ${size}
 `;
 
-const Label = React.memo(({ palette, children }) => (
-  <Wrapper palette={palette}>{children}</Wrapper>
+const Label = React.memo(({ palette, children, ...others }) => (
+  <Wrapper palette={palette} data-testid={others["data-testid"] || "label"}>
+    {children}
+  </Wrapper>
 ));
 
 Label.defaultProps = {

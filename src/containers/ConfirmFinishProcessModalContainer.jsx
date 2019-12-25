@@ -24,7 +24,6 @@ const ConfirmFinishProcessModalContainer = () => {
     <ConfirmModal
       title="The processs was finished"
       isOpen={isOpen}
-      closeFn={closeModal}
       cancelFn={closeModal}
       confirmFn={startProcess}
     >

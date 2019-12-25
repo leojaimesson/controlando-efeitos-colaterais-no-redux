@@ -10,7 +10,9 @@ const Wrapper = styled.main`
 `;
 
 const ViewBody = React.memo(({ children, className }) => (
-  <Wrapper className={className}>{children}</Wrapper>
+  <Wrapper className={className} data-testid="view-body">
+    {children}
+  </Wrapper>
 ));
 
 export default ViewBody;

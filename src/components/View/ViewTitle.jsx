@@ -8,7 +8,9 @@ const Wrapper = styled.h1`
 `;
 
 const ViewTitle = React.memo(({ children, className }) => (
-  <Wrapper className={className}>{children}</Wrapper>
+  <Wrapper className={className} data-testid="view-title">
+    {children}
+  </Wrapper>
 ));
 
 export default ViewTitle;

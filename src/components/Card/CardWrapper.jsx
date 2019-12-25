@@ -6,7 +6,11 @@ const Wrapper = styled.div`
   padding: 10px;
 `;
 
-const CardWrapper = React.memo(({ children }) => <Wrapper>{children}</Wrapper>);
+const CardWrapper = React.memo(({ children, ...others }) => (
+  <Wrapper data-testid={others["data-testid"] || "card-wrapper"}>
+    {children}
+  </Wrapper>
+));
 
 CardWrapper.defaultProps = {
   children: undefined

@@ -9,8 +9,10 @@ export const Wrapper = styled.h5`
   padding: 0;
 `;
 
-const CardTitle = React.memo(({ tag, children }) => (
-  <Wrapper as={tag}>{children}</Wrapper>
+const CardTitle = React.memo(({ tag, children, ...others }) => (
+  <Wrapper as={tag} data-testid={others["data-testid"] || "card-title"}>
+    {children}
+  </Wrapper>
 ));
 
 CardTitle.defaultProps = {

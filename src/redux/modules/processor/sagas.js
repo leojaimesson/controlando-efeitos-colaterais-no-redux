@@ -1,27 +1,19 @@
-import {
-  takeLatest,
-  take,
-  all,
-  put,
-  call,
-  delay,
-  fork,
-  cancel
-} from "redux-saga/effects";
+import { take, all, put, delay, fork, cancel } from "redux-saga/effects";
 import * as actions from "./actions";
 
 function getRandomInteget() {
   return Math.floor(Math.random() * Math.floor(1000));
 }
 
-function* processTask1() {
+export function* processTask1() {
   const value = getRandomInteget();
   yield delay(6000);
   yield put(actions.finishTask1(value));
   yield put(actions.startTask2());
+  console.log("ssssssssss");
 }
 
-function* processTask2() {
+export function* processTask2() {
   const value = getRandomInteget();
   yield delay(6000);
   yield put(actions.finishTask2(value));
@@ -49,7 +41,7 @@ function* processTask5() {
   yield put(actions.finishProcess());
 }
 
-function* watchForTaskActions() {
+export function* watchForTaskActions() {
   while (true) {
     const action = yield take([
       actions.TASK_1_STARTED,
@@ -117,10 +109,8 @@ function* watchForProcessActions() {
 
 function* watchForModalActions() {
   while (true) {
-    const action = yield take([actions.CONFIRM_FINISH_PROCESS_MODAL_CLOSED]);
-    if (action.type === actions.CONFIRM_FINISH_PROCESS_MODAL_CLOSED) {
-      yield put(actions.resetProcessState());
-    }
+    yield take(actions.CONFIRM_FINISH_PROCESS_MODAL_CLOSED);
+    yield put(actions.resetProcessState());
   }
 }
 

@@ -40,14 +40,24 @@ const HomeContainer = () => {
       subtitle="Using Redux-Saga to handle sequential tasks"
     >
       <ActionsRow>
-        <Label palette="primary">Total Value: {totalValue}</Label>
+        <Label palette="primary" data-testid="total-value">
+          Total Value: {totalValue}
+        </Label>
         <div>
           {isProcessing ? (
-            <Button palette="alert" onClick={cancelProcess}>
+            <Button
+              palette="alert"
+              data-testid="cancel-process-button"
+              onClick={cancelProcess}
+            >
               Cancel process
             </Button>
           ) : (
-            <Button palette="success" onClick={startProcess}>
+            <Button
+              palette="success"
+              data-testid="start-process-button"
+              onClick={startProcess}
+            >
               Start process
             </Button>
           )}

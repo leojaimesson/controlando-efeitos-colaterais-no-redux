@@ -16,7 +16,7 @@ const Wrapper = styled.ul`
 const Tasks = React.memo(({ tasks }) => {
   const taskKeys = Object.keys(tasks);
   return (
-    <Wrapper>
+    <Wrapper data-testid="tasks">
       {taskKeys.map(taskKey => {
         const palette = (tasks[taskKey].isProcessed && "primary") || "default";
         return (

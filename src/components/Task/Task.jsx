@@ -34,14 +34,20 @@ const Loader = styled(Circle)`
 
 const Task = React.memo(
   ({ title, description, isProcessing, value, palette, ...others }) => (
-    <Wrapper palette={palette} {...others}>
-      <Header palette={palette}>
-        <Card.Title>{title}</Card.Title>
-        {isProcessing && <Loader />}
+    <Wrapper palette={palette} data-testid="task" {...others}>
+      <Header palette={palette} data-testid="task-header">
+        <Card.Title data-testid="task-title">{title}</Card.Title>
+        {isProcessing && (
+          <div data-testid="task-loader">
+            <Loader />
+          </div>
+        )}
       </Header>
-      <Body>{description}</Body>
-      <Footer palette={palette}>
-        <Label palette={palette}>Value: {value}</Label>
+      <Body data-testid="task-body">{description}</Body>
+      <Footer palette={palette} data-testid="task-footer">
+        <Label palette={palette} data-testid="task-value">
+          Value: {value}
+        </Label>
       </Footer>
     </Wrapper>
   )
@@ -49,6 +55,7 @@ const Task = React.memo(
 
 Task.defaultProps = {
   title: undefined,
+  description: undefined,
   isProcessing: false,
   value: undefined,
   palette: "default"
@@ -56,6 +63,7 @@ Task.defaultProps = {
 
 Task.propTypes = {
   title: PropTypes.string,
+  description: PropTypes.string,
   isProcessing: PropTypes.bool,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };

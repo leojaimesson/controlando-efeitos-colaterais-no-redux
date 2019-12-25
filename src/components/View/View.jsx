@@ -20,7 +20,7 @@ const Wrapper = styled.div``;
 const View = React.memo(({ title, subtitle, body, children }) => (
   <>
     <GlobalStyle />
-    <Wrapper>
+    <Wrapper data-testid="view">
       <Header />
       {children ? (
         <ViewBody>

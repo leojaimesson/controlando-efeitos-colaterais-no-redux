@@ -23,8 +23,12 @@ const Wrapper = styled.header`
   ${variant}
 `;
 
-const CardHeader = React.memo(({ palette, className, children }) => (
-  <Wrapper palette={palette} className={className}>
+const CardHeader = React.memo(({ palette, className, children, ...others }) => (
+  <Wrapper
+    palette={palette}
+    className={className}
+    data-testid={others["data-testid"] || "card-header"}
+  >
     {children}
   </Wrapper>
 ));

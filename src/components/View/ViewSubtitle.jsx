@@ -9,7 +9,9 @@ const Wrapper = styled.h3`
 `;
 
 const ViewSubtitle = React.memo(({ children, className }) => (
-  <Wrapper className={className}>{children}</Wrapper>
+  <Wrapper className={className} data-testid="view-subtitle">
+    {children}
+  </Wrapper>
 ));
 
 export default ViewSubtitle;
