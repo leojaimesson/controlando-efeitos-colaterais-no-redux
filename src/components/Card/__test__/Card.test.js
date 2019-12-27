@@ -1,11 +1,6 @@
 import React from "react";
 import { lighten } from "polished";
-import {
-  render,
-  cleanup,
-  queryByTestId,
-  fireEvent
-} from "@testing-library/react";
+import { render, cleanup, queryByTestId } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";
 
 import { themes } from "../../../css.settings";

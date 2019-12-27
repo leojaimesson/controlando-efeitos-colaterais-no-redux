@@ -3,7 +3,7 @@ import * as actions from "../actions";
 import { processor } from "../../../../../__test__/mock/store/processor";
 
 describe("Processor reducers", () => {
-  it("a ação de iniciar a primeira task deve alterar o estado corretamente", () => {
+  it("a ação de iniciar a primeira tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.startTask1());
     expect(state.tasks.task1).toEqual(
       expect.objectContaining({
@@ -12,7 +12,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de finalizar a primeira task deve alterar o estado corretamente", () => {
+  it("a ação de finalizar a primeira tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.finishTask1(200));
     expect(state.tasks.task1).toEqual(
       expect.objectContaining({
@@ -23,7 +23,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de iniciar a segunda task deve alterar o estado corretamente", () => {
+  it("a ação de iniciar a segunda tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.startTask2());
     expect(state.tasks.task2).toEqual(
       expect.objectContaining({
@@ -32,7 +32,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de finalizar a primeira task deve alterar o estado corretamente", () => {
+  it("a ação de finalizar a primeira tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.finishTask2(200));
     expect(state.tasks.task2).toEqual(
       expect.objectContaining({
@@ -43,7 +43,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de iniciar a terceira task deve alterar o estado corretamente", () => {
+  it("a ação de iniciar a terceira tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.startTask3());
     expect(state.tasks.task3).toEqual(
       expect.objectContaining({
@@ -52,7 +52,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de finalizar a terceira task deve alterar o estado corretamente", () => {
+  it("a ação de finalizar a terceira tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.finishTask3(200));
     expect(state.tasks.task3).toEqual(
       expect.objectContaining({
@@ -63,7 +63,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de iniciar a quarta task deve alterar o estado corretamente", () => {
+  it("a ação de iniciar a quarta tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.startTask4());
     expect(state.tasks.task4).toEqual(
       expect.objectContaining({
@@ -72,7 +72,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de finalizar a quarta task deve alterar o estado corretamente", () => {
+  it("a ação de finalizar a quarta tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.finishTask4(200));
     expect(state.tasks.task4).toEqual(
       expect.objectContaining({
@@ -83,7 +83,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de iniciar a quinta task deve alterar o estado corretamente", () => {
+  it("a ação de iniciar a quinta tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.startTask5());
     expect(state.tasks.task5).toEqual(
       expect.objectContaining({
@@ -92,7 +92,7 @@ describe("Processor reducers", () => {
     );
   });
 
-  it("a ação de finalizar a quinta task deve alterar o estado corretamente", () => {
+  it("a ação de finalizar a quinta tarefa deve alterar o estado corretamente", () => {
     const state = reducer(processor.processor, actions.finishTask5(200));
     expect(state.tasks.task5).toEqual(
       expect.objectContaining({

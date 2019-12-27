@@ -1,13 +1,9 @@
 import React from "react";
-import { darken } from "polished";
 import { ModalProvider } from "styled-react-modal";
 import {
   render,
   cleanup,
   queryByTestId,
-  queryByText,
-  getNodeText,
-  getByText,
   fireEvent
 } from "@testing-library/react";
 import { ThemeProvider } from "styled-components";

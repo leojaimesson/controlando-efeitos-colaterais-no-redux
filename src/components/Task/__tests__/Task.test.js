@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  render,
-  cleanup,
-  queryByTestId,
-  fireEvent
-} from "@testing-library/react";
+import { render, cleanup, queryByTestId } from "@testing-library/react";
 
 import { ThemeProvider } from "styled-components";
 
@@ -36,7 +31,7 @@ describe("<Task />", () => {
     jest.clearAllMocks();
   });
 
-  it("deve renderizar", () => {
+  it("deve renderizar corretamente", () => {
     expect(queryByTestId(component.container, "task")).toBeTruthy();
     expect(queryByTestId(component.container, "task-title")).toHaveTextContent(
       props.title
@@ -49,12 +44,12 @@ describe("<Task />", () => {
     );
   });
 
-  it("deve exibir um loading quando estiver processando", () => {
+  it("deve renderizar corretamente com o loading quando estiver processando", () => {
     component.rerender(<Task {...props} isProcessing />);
     expect(queryByTestId(component.container, "task-loader")).toBeTruthy();
   });
 
-  it("não deve exibir um loading quando não estiver processando", () => {
+  it("deve renderizar corretamenta sem o loading quando não estiver processando", () => {
     component.rerender(<Task {...props} isProcessing={false} />);
     expect(queryByTestId(component.container, "task-loader")).not.toBeTruthy();
   });

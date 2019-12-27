@@ -3,8 +3,7 @@ import {
   render,
   cleanup,
   queryByTestId,
-  queryAllByTestId,
-  fireEvent
+  queryAllByTestId
 } from "@testing-library/react";
 
 import { ThemeProvider } from "styled-components";
@@ -34,18 +33,18 @@ describe("<Tasks />", () => {
     jest.clearAllMocks();
   });
 
-  it("deve renderizar", () => {
+  it("deve renderizar corretamente", () => {
     expect(queryByTestId(component.container, "tasks")).toBeTruthy();
   });
 
-  it("deve renderizar corretamente com tasks", () => {
+  it("deve renderizar corretamente com tarefas", () => {
     const tasksLength = Object.keys(props.tasks).length;
     expect(queryAllByTestId(component.container, "task")).toHaveLength(
       tasksLength
     );
   });
 
-  it("deve renderizar corretamente sem tasks", () => {
+  it("deve renderizar corretamente sem tarefas", () => {
     component.rerender(<Tasks tasks={{}} />);
     expect(queryAllByTestId(component.container, "task")).toHaveLength(0);
   });
