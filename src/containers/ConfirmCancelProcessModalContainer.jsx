@@ -22,12 +22,12 @@ const ConfirmCancelProcessModalContainer = () => {
 
   return (
     <ConfirmModal
-      title="Confirm cancel process"
+      title="Confirmar cancelamento do processo"
       isOpen={isOpen}
       cancelFn={closeModal}
       confirmFn={cancelProcess}
     >
-      Do you really want to cancel this process?
+      Deseja realmente cancelar este processo?
     </ConfirmModal>
   );
 };

@@ -22,12 +22,12 @@ const ConfirmFinishProcessModalContainer = () => {
 
   return (
     <ConfirmModal
-      title="The processs was finished"
+      title="O processo foi concluído"
       isOpen={isOpen}
       cancelFn={closeModal}
       confirmFn={startProcess}
     >
-      Do you want to start a new process?
+      Deseja iniciar um novo processo?
     </ConfirmModal>
   );
 };

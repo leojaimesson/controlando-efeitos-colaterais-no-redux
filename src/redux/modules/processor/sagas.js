@@ -1,41 +1,37 @@
 import { take, all, put, delay, fork, cancel } from "redux-saga/effects";
 import * as actions from "./actions";
+import getRandomNumber from "../../../utils/getRandomNumber";
 
-function getRandomInteget() {
-  return Math.floor(Math.random() * Math.floor(1000));
-}
-
-export function* processTask1() {
-  const value = getRandomInteget();
+function* processTask1() {
+  const value = getRandomNumber();
   yield delay(6000);
   yield put(actions.finishTask1(value));
   yield put(actions.startTask2());
-  console.log("ssssssssss");
 }
 
-export function* processTask2() {
-  const value = getRandomInteget();
+function* processTask2() {
+  const value = getRandomNumber();
   yield delay(6000);
   yield put(actions.finishTask2(value));
   yield put(actions.startTask3());
 }
 
 function* processTask3() {
-  const value = getRandomInteget();
+  const value = getRandomNumber();
   yield delay(6000);
   yield put(actions.finishTask3(value));
   yield put(actions.startTask4());
 }
 
 function* processTask4() {
-  const value = getRandomInteget();
+  const value = getRandomNumber();
   yield delay(6000);
   yield put(actions.finishTask4(value));
   yield put(actions.startTask5());
 }
 
 function* processTask5() {
-  const value = getRandomInteget();
+  const value = getRandomNumber();
   yield delay(6000);
   yield put(actions.finishTask5(value));
   yield put(actions.finishProcess());
